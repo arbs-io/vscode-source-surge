@@ -1,0 +1,130 @@
+{
+  "name": "vscode-source-surge",
+  "displayName": "vscode-source-surge",
+  "description": "A vscode extension providing quick access menu for editor",
+  "version": "1.0.0",
+  "publisher": "AndrewButson",
+  "icon": "images/logo_128x128.png",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arbs-io/vscode-source-surge.git"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/arbs-io"
+  },
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "main": "./out/extension.js",
+  "browser": "./out/extension.js",
+  "contributes": {
+    "menus": {
+      "editor/title": [
+        {
+          "submenu": "sourceSurge.action.toolbox",
+          "when": "editorTextFocus",
+          "group": "navigation"
+        }
+      ],
+      "sourceSurge.action.toolbox": [
+        {
+          "submenu": "sourceSurge.action.editorZoom",
+          "group": "navigation"
+        },
+        {
+          "command": "sourceSurge.action.editorZoomPrint",
+          "group": "navigation",
+          "icon": "$(zoom-in)"
+        },
+        {
+          "command": "sourceSurge.action.editorFormatDocument",
+          "group": "navigation",
+          "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor",
+          "icon": "$(zoom-in)"
+        }
+      ],
+      "sourceSurge.action.editorZoom": [
+        {
+          "command": "sourceSurge.action.editorZoomIn",
+          "group": "navigation.editorZoom1",
+          "icon": "$(zoom-in)"
+        },
+        {
+          "command": "sourceSurge.action.editorZoomReset",
+          "group": "navigation.editorZoom3",
+          "icon": "$(zoom-out)"
+        },
+        {
+          "command": "sourceSurge.action.editorZoomOut",
+          "group": "navigation.editorZoom2",
+          "icon": "$(zoom-out)"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "sourceSurge.action.toolbox",
+        "label": "sourceSurge.action.toolbox",
+        "when": "editorTextFocus",
+        "icon": "$(tools)"
+      },
+      {
+        "id": "sourceSurge.action.editorZoom",
+        "label": "Zoom",
+        "when": "editorTextFocus",
+        "icon": "$(search-view-icon)"
+      }
+    ],
+    "commands": [
+      {
+        "command": "sourceSurge.action.editorZoomIn",
+        "title": "Zoom In",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoomReset",
+        "title": "Zoom Reset",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoomOut",
+        "title": "Zoom Out",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoomPrint",
+        "title": "Zoom Print",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorFormatDocument",
+        "title": "Format",
+        "category": "source-surge"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "deploy": "vsce publish --yarn"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/vscode": "^1.73.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "esbuild": "^0.17.4",
+    "eslint": "^8.32.0",
+    "typescript": "^4.9.4",
+    "@vscode/vsce": "^2.16.0"
+  }
+}
