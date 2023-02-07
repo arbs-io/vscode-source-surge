@@ -1,7 +1,7 @@
 {
   "name": "vscode-source-surge",
   "displayName": "vscode-source-surge",
-  "description": "A vscode extension to view openapi specifications",
+  "description": "A vscode extension providing quick access menu for editor",
   "version": "1.0.0",
   "publisher": "AndrewButson",
   "icon": "images/logo_128x128.png",
@@ -20,85 +20,91 @@
   "categories": [
     "Formatters"
   ],
-  "activationEvents": [
-    "onLanguage:abc"
-  ],
   "main": "./out/extension.js",
   "browser": "./out/extension.js",
   "contributes": {
-    "languages": [
-      {
-        "id": "abc",
-        "extensions": [
-          ".abc"
-        ]
-      }
-    ],
     "menus": {
       "editor/title": [
         {
-          "submenu": "source-surge.action.editorZoom",
-          "when": "editorLangId == abc",
-          "group": "navigation",
-          "icon": {
-            "light": "assets/openapi-icon-light.png",
-            "dark": "assets/openapi-icon-dark.png"
-          }
+          "submenu": "sourceSurge.action.toolbox",
+          "when": "editorTextFocus",
+          "group": "navigation"
         }
       ],
-      "source-surge.action.editorZoom": [
+      "sourceSurge.action.toolbox": [
         {
-          "command": "source-surge.action.editorZoomIn",
+          "submenu": "sourceSurge.action.editorZoom",
+          "group": "navigation"
+        },
+        {
+          "command": "sourceSurge.action.editorZoomPrint",
           "group": "navigation",
           "icon": "$(zoom-in)"
         },
         {
-          "command": "source-surge.action.editorZoomReset",
+          "command": "sourceSurge.action.editorFormatDocument",
           "group": "navigation",
+          "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor",
+          "icon": "$(zoom-in)"
+        }
+      ],
+      "sourceSurge.action.editorZoom": [
+        {
+          "command": "sourceSurge.action.editorZoomIn",
+          "group": "navigation.editorZoom1",
+          "icon": "$(zoom-in)"
+        },
+        {
+          "command": "sourceSurge.action.editorZoomReset",
+          "group": "navigation.editorZoom3",
           "icon": "$(zoom-out)"
         },
         {
-          "command": "source-surge.action.editorZoomOut",
-          "group": "navigation",
+          "command": "sourceSurge.action.editorZoomOut",
+          "group": "navigation.editorZoom2",
           "icon": "$(zoom-out)"
         }
       ]
     },
     "submenus": [
       {
-        "id": "source-surge.action.editorZoom",
-        "label": "Stage",
+        "id": "sourceSurge.action.toolbox",
+        "label": "sourceSurge.action.toolbox",
+        "when": "editorTextFocus",
+        "icon": "$(tools)"
+      },
+      {
+        "id": "sourceSurge.action.editorZoom",
+        "label": "Zoom",
         "when": "editorTextFocus",
         "icon": "$(search-view-icon)"
       }
     ],
     "commands": [
       {
-        "command": "source-surge.action.editorZoomIn",
+        "command": "sourceSurge.action.editorZoomIn",
         "title": "Zoom In",
-        "category": "source-surge",
-        "icon": {
-          "light": "assets/openapi-icon-light.png",
-          "dark": "assets/openapi-icon-dark.png"
-        }
+        "category": "source-surge"
       },
       {
-        "command": "source-surge.action.editorZoomReset",
+        "command": "sourceSurge.action.editorZoomReset",
         "title": "Zoom Reset",
-        "category": "source-surge",
-        "icon": {
-          "light": "assets/openapi-icon-light.png",
-          "dark": "assets/openapi-icon-dark.png"
-        }
+        "category": "source-surge"
       },
       {
-        "command": "source-surge.action.editorZoomOut",
+        "command": "sourceSurge.action.editorZoomOut",
         "title": "Zoom Out",
-        "category": "source-surge",
-        "icon": {
-          "light": "assets/openapi-icon-light.png",
-          "dark": "assets/openapi-icon-dark.png"
-        }
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoomPrint",
+        "title": "Zoom Print",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorFormatDocument",
+        "title": "Format",
+        "category": "source-surge"
       }
     ]
   },

@@ -1,6 +1,8 @@
 import { ExtensionContext } from 'vscode'
-import { registerZoomIn } from './contexts/registerZoomIn'
+import { registerEditorZoom } from './contexts/registerEditorZoom'
+import { registerEditorFormatDocument } from './contexts/registerEditorFormatDocument'
 
 export function activate(context: ExtensionContext) {
-  registerZoomIn(context)
+  registerEditorZoom(context)
+  registerEditorFormatDocument(context)
 }
