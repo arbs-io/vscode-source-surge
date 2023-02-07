@@ -2,21 +2,14 @@ import { commands, ExtensionContext, Uri, workspace } from 'vscode'
 import {
   EDITOR_ZOOM_IN_COMMAND_ID,
   EDITOR_ZOOM_OUT_COMMAND_ID,
+  EDITOR_ZOOM_PRINT_COMMAND_ID,
   EDITOR_ZOOM_RESET_COMMAND_ID,
 } from './sourceSurgeCommands'
 
 let zoomReset: number
 let zoomLevel: number
 
-function stringToNumber(s: string): number | undefined {
-  const n = parseFloat(s)
-  if (isNaN(n)) {
-    return undefined
-  }
-  return n
-}
-
-export function registerZoomIn(context: ExtensionContext) {
+export function registerEditorZoom(context: ExtensionContext) {
   const zoomSettings = workspace
     .getConfiguration('')
     .get<number>('window.zoomLevel')
@@ -25,16 +18,11 @@ export function registerZoomIn(context: ExtensionContext) {
   _registerZoomInCommand(context)
   _registerZoomOutCommand(context)
   _registerZoomResetCommand(context)
+  _registerZoomPrintCommand(context)
 }
 
 function _registerZoomInCommand(context: ExtensionContext) {
   const commandHandler = async (uri: Uri) => {
-    // zoom++
-    // const success = await commands.executeCommand(
-    //   'workbench.action.zoomIn',
-    //   zoom
-    // )
-    // assert(success)
     zoomLevel++
     workspace.getConfiguration('').update('window.zoomLevel', zoomLevel, true)
   }
@@ -44,12 +32,6 @@ function _registerZoomInCommand(context: ExtensionContext) {
 }
 function _registerZoomOutCommand(context: ExtensionContext) {
   const commandHandler = async (uri: Uri) => {
-    // zoom--
-    // const success = await commands.executeCommand(
-    //   'workbench.action.zoomOut',
-    //   zoom
-    // )
-    // assert(success)
     zoomLevel--
     workspace.getConfiguration('').update('window.zoomLevel', zoomLevel, true)
   }
@@ -60,16 +42,22 @@ function _registerZoomOutCommand(context: ExtensionContext) {
 
 function _registerZoomResetCommand(context: ExtensionContext) {
   const commandHandler = async (uri: Uri) => {
-    // zoom = 0
-    // const success = await commands.executeCommand(
-    //   'workbench.action.zoomIn',
-    //   zoom
-    // )
-    // assert(success)
     zoomLevel = zoomReset
     workspace.getConfiguration('').update('window.zoomLevel', zoomLevel, true)
   }
   context.subscriptions.push(
     commands.registerCommand(EDITOR_ZOOM_RESET_COMMAND_ID, commandHandler)
+  )
+}
+
+function _registerZoomPrintCommand(context: ExtensionContext) {
+  const commandHandler = async (uri: Uri) => {
+    const zoomSettings = workspace
+      .getConfiguration('')
+      .get<number>('window.zoomLevel')
+    console.log(zoomSettings)
+  }
+  context.subscriptions.push(
+    commands.registerCommand(EDITOR_ZOOM_PRINT_COMMAND_ID, commandHandler)
   )
 }
