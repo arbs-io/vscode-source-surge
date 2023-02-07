@@ -1,0 +1,124 @@
+{
+  "name": "vscode-source-surge",
+  "displayName": "vscode-source-surge",
+  "description": "A vscode extension to view openapi specifications",
+  "version": "1.0.0",
+  "publisher": "AndrewButson",
+  "icon": "images/logo_128x128.png",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arbs-io/vscode-source-surge.git"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/arbs-io"
+  },
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:abc"
+  ],
+  "main": "./out/extension.js",
+  "browser": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "abc",
+        "extensions": [
+          ".abc"
+        ]
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "submenu": "source-surge.action.editorZoom",
+          "when": "editorLangId == abc",
+          "group": "navigation",
+          "icon": {
+            "light": "assets/openapi-icon-light.png",
+            "dark": "assets/openapi-icon-dark.png"
+          }
+        }
+      ],
+      "source-surge.action.editorZoom": [
+        {
+          "command": "source-surge.action.editorZoomIn",
+          "group": "navigation",
+          "icon": "$(zoom-in)"
+        },
+        {
+          "command": "source-surge.action.editorZoomReset",
+          "group": "navigation",
+          "icon": "$(zoom-out)"
+        },
+        {
+          "command": "source-surge.action.editorZoomOut",
+          "group": "navigation",
+          "icon": "$(zoom-out)"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "source-surge.action.editorZoom",
+        "label": "Stage",
+        "when": "editorTextFocus",
+        "icon": "$(search-view-icon)"
+      }
+    ],
+    "commands": [
+      {
+        "command": "source-surge.action.editorZoomIn",
+        "title": "Zoom In",
+        "category": "source-surge",
+        "icon": {
+          "light": "assets/openapi-icon-light.png",
+          "dark": "assets/openapi-icon-dark.png"
+        }
+      },
+      {
+        "command": "source-surge.action.editorZoomReset",
+        "title": "Zoom Reset",
+        "category": "source-surge",
+        "icon": {
+          "light": "assets/openapi-icon-light.png",
+          "dark": "assets/openapi-icon-dark.png"
+        }
+      },
+      {
+        "command": "source-surge.action.editorZoomOut",
+        "title": "Zoom Out",
+        "category": "source-surge",
+        "icon": {
+          "light": "assets/openapi-icon-light.png",
+          "dark": "assets/openapi-icon-dark.png"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "deploy": "vsce publish --yarn"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/vscode": "^1.73.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "esbuild": "^0.17.4",
+    "eslint": "^8.32.0",
+    "typescript": "^4.9.4",
+    "@vscode/vsce": "^2.16.0"
+  }
+}
