@@ -1,5 +1,17 @@
 # vscode-source-surge
 
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/AndrewButson.vscode-source-surge)
+![.github/workflows/codeql-analysis](https://github.com/arbs-io/vscode-source-surge/actions/workflows/codeql-analysis.yml/badge.svg)
+![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/AndrewButson.vscode-source-surge)
+[![GitHub issues](https://img.shields.io/github/issues/arbs-io/vscode-source-surge.svg)](https://github.com/arbs-io/vscode-source-surge/issues)
+![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/AndrewButson.vscode-source-surge)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_vscode-source-surge&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_vscode-source-surge)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_vscode-source-surge&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_vscode-source-surge)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_vscode-source-surge&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_vscode-source-surge)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_vscode-source-surge&metric=bugs)](https://sonarcloud.io/summary/new_code?id=arbs-io_vscode-source-surge)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_vscode-source-surge&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=arbs-io_vscode-source-surge)
+
 ## Overview
 
 Source Surge is an innovative and highly beneficial vscode extension designed to optimise developers' workflow by providing quick and easy access to a range of essential features. The extension was created to enhance productivity and reduce the cognitive burden of remembering multiple shortcut bindings.
