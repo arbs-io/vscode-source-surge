@@ -2,7 +2,7 @@
   "name": "vscode-source-surge",
   "displayName": "vscode-source-surge",
   "description": "A vscode extension providing quick access menu for editor",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "publisher": "AndrewButson",
   "icon": "images/logo_128x128.png",
   "private": true,
@@ -20,6 +20,9 @@
   "categories": [
     "Formatters"
   ],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./out/extension.js",
   "browser": "./out/extension.js",
   "contributes": {
@@ -27,42 +30,112 @@
       "editor/title": [
         {
           "submenu": "sourceSurge.action.toolbox",
-          "when": "editorTextFocus",
           "group": "navigation"
         }
       ],
       "sourceSurge.action.toolbox": [
         {
+          "command": "workbench.action.toggleZenMode",
+          "group": "navigation.sourceSurge1"
+        },
+        {
           "submenu": "sourceSurge.action.editorZoom",
-          "group": "navigation"
+          "group": "navigation.sourceSurge2"
         },
         {
-          "command": "sourceSurge.action.editorZoomPrint",
-          "group": "navigation",
-          "icon": "$(zoom-in)"
+          "submenu": "sourceSurge.action.transform",
+          "group": "navigation.sourceSurge2"
         },
         {
-          "command": "sourceSurge.action.editorFormatDocument",
-          "group": "navigation",
-          "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor",
-          "icon": "$(zoom-in)"
+          "submenu": "sourceSurge.action.devtools",
+          "group": "navigation.sourceSurge2"
         }
       ],
       "sourceSurge.action.editorZoom": [
         {
           "command": "sourceSurge.action.editorZoomIn",
-          "group": "navigation.editorZoom1",
-          "icon": "$(zoom-in)"
-        },
-        {
-          "command": "sourceSurge.action.editorZoomReset",
-          "group": "navigation.editorZoom3",
-          "icon": "$(zoom-out)"
+          "group": "navigation.sourceSurge.editorZoom1"
         },
         {
           "command": "sourceSurge.action.editorZoomOut",
-          "group": "navigation.editorZoom2",
-          "icon": "$(zoom-out)"
+          "group": "navigation.sourceSurge.editorZoom1"
+        },
+        {
+          "command": "sourceSurge.action.editorZoomReset",
+          "group": "navigation.sourceSurge.editorZoom3"
+        },
+        {
+          "command": "sourceSurge.action.editorZoom060",
+          "group": "navigation.sourceSurge.editorZoom2"
+        },
+        {
+          "command": "sourceSurge.action.editorZoom070",
+          "group": "navigation.sourceSurge.editorZoom2"
+        },
+        {
+          "command": "sourceSurge.action.editorZoom085",
+          "group": "navigation.sourceSurge.editorZoom2"
+        },
+        {
+          "command": "sourceSurge.action.editorZoom100",
+          "group": "navigation.sourceSurge.editorZoom2"
+        },
+        {
+          "command": "sourceSurge.action.editorZoom120",
+          "group": "navigation.sourceSurge.editorZoom2"
+        },
+        {
+          "command": "sourceSurge.action.editorZoom150",
+          "group": "navigation.sourceSurge.editorZoom2"
+        },
+        {
+          "command": "sourceSurge.action.editorZoom175",
+          "group": "navigation.sourceSurge.editorZoom2"
+        },
+        {
+          "command": "sourceSurge.action.editorZoom200",
+          "group": "navigation.sourceSurge.editorZoom2"
+        }
+      ],
+      "sourceSurge.action.devtools": [
+        {
+          "command": "workbench.action.toggleDevTools",
+          "group": "navigation.sourceSurge.formatDocument"
+        },
+        {
+          "command": "sourceSurge.action.foldAll",
+          "group": "navigation.sourceSurge.fold"
+        },
+        {
+          "command": "sourceSurge.action.unfoldAll",
+          "group": "navigation.sourceSurge.fold"
+        }
+      ],
+      "sourceSurge.action.transform": [
+        {
+          "command": "sourceSurge.action.formatDocument",
+          "group": "navigation.sourceSurge.formatDocument",
+          "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+        },
+        {
+          "command": "sourceSurge.action.transformToKebabcase",
+          "group": "navigation.sourceSurge.transform"
+        },
+        {
+          "command": "sourceSurge.action.transformToUppercase",
+          "group": "navigation.sourceSurge.transform"
+        },
+        {
+          "command": "sourceSurge.action.transformToLowercase",
+          "group": "navigation.sourceSurge.transform"
+        },
+        {
+          "command": "sourceSurge.action.transformToSnakecase",
+          "group": "navigation.sourceSurge.transform"
+        },
+        {
+          "command": "sourceSurge.action.transformToTitlecase",
+          "group": "navigation.sourceSurge.transform"
         }
       ]
     },
@@ -76,11 +149,55 @@
       {
         "id": "sourceSurge.action.editorZoom",
         "label": "Zoom",
-        "when": "editorTextFocus",
-        "icon": "$(search-view-icon)"
+        "when": "editorTextFocus"
+      },
+      {
+        "id": "sourceSurge.action.transform",
+        "label": "Transform",
+        "when": "editorTextFocus"
+      },
+      {
+        "id": "sourceSurge.action.devtools",
+        "label": "Developer",
+        "when": "editorTextFocus"
       }
     ],
     "commands": [
+      {
+        "command": "sourceSurge.action.foldAll",
+        "title": "Fold All",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.unfoldAll",
+        "title": "Unfold All",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.transformToKebabcase",
+        "title": "Kebab-Case",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.transformToUppercase",
+        "title": "UPPER CASE",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.transformToLowercase",
+        "title": "lower case",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.transformToSnakecase",
+        "title": "snake_case",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.transformToTitlecase",
+        "title": "Title Case",
+        "category": "source-surge"
+      },
       {
         "command": "sourceSurge.action.editorZoomIn",
         "title": "Zoom In",
@@ -97,13 +214,53 @@
         "category": "source-surge"
       },
       {
-        "command": "sourceSurge.action.editorZoomPrint",
-        "title": "Zoom Print",
+        "command": "sourceSurge.action.editorZoom060",
+        "title": " 60%",
         "category": "source-surge"
       },
       {
-        "command": "sourceSurge.action.editorFormatDocument",
+        "command": "sourceSurge.action.editorZoom070",
+        "title": " 70%",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoom085",
+        "title": " 85%",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoom100",
+        "title": "100%",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoom120",
+        "title": "120%",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoom150",
+        "title": "150%",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoom175",
+        "title": "175%",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.editorZoom200",
+        "title": "200%",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.formatDocument",
         "title": "Format",
+        "category": "source-surge"
+      },
+      {
+        "command": "sourceSurge.action.toggleDevTools",
+        "title": "Developer Tools",
         "category": "source-surge"
       }
     ]
