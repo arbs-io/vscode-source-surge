@@ -2,7 +2,7 @@
   "name": "vscode-source-surge",
   "displayName": "vscode-source-surge",
   "description": "A vscode extension providing quick access menu for editor",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "publisher": "AndrewButson",
   "icon": "images/logo_128x128.png",
   "private": true,
