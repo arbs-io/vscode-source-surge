@@ -38,3 +38,7 @@ export const ZOOM_120_COMMAND_ID = 'sourceSurge.action.editorZoom120'
 export const ZOOM_150_COMMAND_ID = 'sourceSurge.action.editorZoom150'
 export const ZOOM_175_COMMAND_ID = 'sourceSurge.action.editorZoom175'
 export const ZOOM_200_COMMAND_ID = 'sourceSurge.action.editorZoom200'
+
+// Crypto
+export const CRYPTO_UUID_COMMAND_ID = 'sourceSurge.action.cryptoUUID'
+export const CRYPTO_SHA512_COMMAND_ID = 'sourceSurge.action.cryptoSHA512'
