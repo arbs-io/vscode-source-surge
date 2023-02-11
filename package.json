@@ -51,7 +51,7 @@
           "group": "navigation.sourceSurge2"
         },
         {
-          "submenu": "sourceSurge.action.hashes",
+          "submenu": "sourceSurge.action.crypto",
           "group": "navigation.sourceSurge2"
         }
       ],
@@ -101,10 +101,14 @@
           "group": "navigation.sourceSurge.editorZoom2"
         }
       ],
-      "sourceSurge.action.hashes": [
+      "sourceSurge.action.crypto": [
         {
           "command": "sourceSurge.action.newUuid",
-          "group": "navigation.sourceSurge.formatDocument"
+          "group": "navigation.sourceSurge.crypto"
+        },
+        {
+          "command": "sourceSurge.action.newSha512",
+          "group": "navigation.sourceSurge.crypto"
         }
       ],
       "sourceSurge.action.devtools": [
@@ -172,16 +176,21 @@
         "when": "editorTextFocus"
       },
       {
-        "id": "sourceSurge.action.hashes",
-        "label": "Hashes",
+        "id": "sourceSurge.action.crypto",
+        "label": "Crypto",
         "when": "editorTextFocus"
       }
     ],
     "commands": [
       {
+        "command": "sourceSurge.action.newSha512",
+        "title": "Generate SHA-512",
+        "category": "source-surge.crypto"
+      },
+      {
         "command": "sourceSurge.action.newUuid",
-        "title": "New UUID(v4)",
-        "category": "source-surge"
+        "title": "Generate UUID(v4)",
+        "category": "source-surge.crypto"
       },
       {
         "command": "sourceSurge.action.foldAll",
