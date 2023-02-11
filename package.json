@@ -103,11 +103,11 @@
       ],
       "sourceSurge.action.crypto": [
         {
-          "command": "sourceSurge.action.newUuid",
+          "command": "sourceSurge.action.cryptoUUID",
           "group": "navigation.sourceSurge.crypto"
         },
         {
-          "command": "sourceSurge.action.newSha512",
+          "command": "sourceSurge.action.cryptoSHA512",
           "group": "navigation.sourceSurge.crypto"
         }
       ],
@@ -183,12 +183,12 @@
     ],
     "commands": [
       {
-        "command": "sourceSurge.action.newSha512",
+        "command": "sourceSurge.action.cryptoSHA512",
         "title": "Generate SHA-512",
         "category": "source-surge.crypto"
       },
       {
-        "command": "sourceSurge.action.newUuid",
+        "command": "sourceSurge.action.cryptoUUID",
         "title": "Generate UUID(v4)",
         "category": "source-surge.crypto"
       },

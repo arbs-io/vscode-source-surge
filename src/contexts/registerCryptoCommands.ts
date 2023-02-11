@@ -1,16 +1,23 @@
-import {
-  commands,
-  ExtensionContext,
-  Uri,
-  window,
-  env,
-  Range,
-} from 'vscode'
+import { commands, ExtensionContext, Uri, window, env, Range } from 'vscode'
 import * as crypto from 'crypto'
+import {
+  CRYPTO_SHA512_COMMAND_ID,
+  CRYPTO_UUID_COMMAND_ID,
+} from './sourceSurgeCommands'
 
 export function registerCryptoCommands(context: ExtensionContext) {
   _registerUuid4Command(context)
-  _registerSha512Command(context)
+  _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha512')
+
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha256')
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha512')
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'md4')
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'md5')
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha1')
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha384')
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha512_224')
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha512_256')
+  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'ripemd160')
 }
 
 function _registerUuid4Command(context: ExtensionContext) {
@@ -22,21 +29,25 @@ function _registerUuid4Command(context: ExtensionContext) {
     )
   }
   context.subscriptions.push(
-    commands.registerCommand('sourceSurge.action.newUuid', commandHandler)
+    commands.registerCommand(CRYPTO_UUID_COMMAND_ID, commandHandler)
   )
 }
 
-function _registerSha512Command(context: ExtensionContext) {
+function _registerSha512Command(
+  context: ExtensionContext,
+  sourceSurgeCommand: string,
+  hashType: string
+) {
   const commandHandler = async (uri: Uri) => {
     const editorValue = _getActiveTextEditorValue()
-    const hash = crypto.createHash('sha512').update(editorValue).digest('hex')
+    const hash = crypto.createHash(hashType).update(editorValue).digest('hex')
     env.clipboard.writeText(hash)
     window.showInformationMessage(
-      `SourceSurge: SHA512 copied to clipboard\n${hash}`
+      `SourceSurge: ${hashType.toUpperCase()} copied to clipboard\n${hash}`
     )
   }
   context.subscriptions.push(
-    commands.registerCommand('sourceSurge.action.newSha512', commandHandler)
+    commands.registerCommand(sourceSurgeCommand, commandHandler)
   )
 }
 
