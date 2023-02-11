@@ -49,6 +49,10 @@
         {
           "submenu": "sourceSurge.action.devtools",
           "group": "navigation.sourceSurge2"
+        },
+        {
+          "submenu": "sourceSurge.action.hashes",
+          "group": "navigation.sourceSurge2"
         }
       ],
       "sourceSurge.action.editorZoom": [
@@ -95,6 +99,12 @@
         {
           "command": "sourceSurge.action.editorZoom200",
           "group": "navigation.sourceSurge.editorZoom2"
+        }
+      ],
+      "sourceSurge.action.hashes": [
+        {
+          "command": "sourceSurge.action.newUuid",
+          "group": "navigation.sourceSurge.formatDocument"
         }
       ],
       "sourceSurge.action.devtools": [
@@ -160,9 +170,19 @@
         "id": "sourceSurge.action.devtools",
         "label": "Developer",
         "when": "editorTextFocus"
+      },
+      {
+        "id": "sourceSurge.action.hashes",
+        "label": "Hashes",
+        "when": "editorTextFocus"
       }
     ],
     "commands": [
+      {
+        "command": "sourceSurge.action.newUuid",
+        "title": "New UUID(v4)",
+        "category": "source-surge"
+      },
       {
         "command": "sourceSurge.action.foldAll",
         "title": "Fold All",
