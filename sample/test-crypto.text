@@ -1,0 +1,22 @@
+Random Text:
+MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database
+that delivers ultra-fast performance and Multi-AZ durability for modern
+applications built using microservices architectures. MemoryDB stores the
+entire database in-memory, enabling low latency and high throughput data
+access. It is compatible with Redis, a popular open source data store,
+enabling you to leverage Redis’ flexible and friendly data structures,
+APIs, and commands.
+
+==============================================================================
+
+UUID         df438150-393f-4b8b-9551-16923a2c2ca1
+
+SH1:        273ba307268e43dd2e18d9b91350c9bb8b592c05
+SHA256      8c08e52cde6eddc395582b54d6e0542ed75b3a4883c1e041394b6f77153c1b1b
+SHA386      8545c956943361de3dbb994fedf5da34ef2be889b243d36809ef607d4222cdf25f4043a6b7aa92aa902337d8141776f0
+SHA512      dd1bef2ce3208f958178add336d32ec34f8e562df6c961bbb3786d03dd5b4a92121f34f84cff3525a41be9ce2194569d25a02662c6b535381ad4eb691c63d4a3
+
+MD4         1dd81112d51e14333fd7c46576bc4e3f
+MD5         828a263f36b88918c705322b3c65203f
+
+RIPEMDL160  297962605124c650e0b4214e441d3892140678d3

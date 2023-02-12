@@ -2,7 +2,7 @@
   "name": "vscode-source-surge",
   "displayName": "vscode-source-surge",
   "description": "A vscode extension providing quick access menu for editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "AndrewButson",
   "icon": "images/logo_128x128.png",
   "private": true,
@@ -104,11 +104,35 @@
       "sourceSurge.action.crypto": [
         {
           "command": "sourceSurge.action.cryptoUUID",
-          "group": "navigation.sourceSurge.crypto"
+          "group": "navigation.sourceSurge.crypto1"
+        },
+        {
+          "command": "sourceSurge.action.cryptoMD4",
+          "group": "navigation.sourceSurge.crypto2"
+        },
+        {
+          "command": "sourceSurge.action.cryptoMD5",
+          "group": "navigation.sourceSurge.crypto2"
+        },
+        {
+          "command": "sourceSurge.action.cryptoSHA1",
+          "group": "navigation.sourceSurge.crypto3"
+        },
+        {
+          "command": "sourceSurge.action.cryptoSHA256",
+          "group": "navigation.sourceSurge.crypto3"
+        },
+        {
+          "command": "sourceSurge.action.cryptoSHA384",
+          "group": "navigation.sourceSurge.crypto3"
         },
         {
           "command": "sourceSurge.action.cryptoSHA512",
-          "group": "navigation.sourceSurge.crypto"
+          "group": "navigation.sourceSurge.crypto3"
+        },
+        {
+          "command": "sourceSurge.action.cryptoRIPEMDL160",
+          "group": "navigation.sourceSurge.crypto4"
         }
       ],
       "sourceSurge.action.devtools": [
@@ -183,13 +207,43 @@
     ],
     "commands": [
       {
-        "command": "sourceSurge.action.cryptoSHA512",
-        "title": "Generate SHA-512",
+        "command": "sourceSurge.action.cryptoUUID",
+        "title": "Generate UUID(v4)",
         "category": "sourceSurge.crypto"
       },
       {
-        "command": "sourceSurge.action.cryptoUUID",
-        "title": "Generate UUID(v4)",
+        "command": "sourceSurge.action.cryptoMD4",
+        "title": "Generate MD4",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoMD5",
+        "title": "Generate MD5",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoSHA1",
+        "title": "Generate SHA1",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoSHA256",
+        "title": "Generate SHA256",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoSHA384",
+        "title": "Generate SHA384",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoSHA512",
+        "title": "Generate SHA512",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoRIPEMDL160",
+        "title": "Generate RIPEMDL160",
         "category": "sourceSurge.crypto"
       },
       {

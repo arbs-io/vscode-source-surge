@@ -1,23 +1,26 @@
 import { commands, ExtensionContext, Uri, window, env, Range } from 'vscode'
 import * as crypto from 'crypto'
 import {
-  CRYPTO_SHA512_COMMAND_ID,
   CRYPTO_UUID_COMMAND_ID,
+  CRYPTO_MD4_COMMAND_ID,
+  CRYPTO_MD5_COMMAND_ID,
+  CRYPTO_SHA1_COMMAND_ID,
+  CRYPTO_SHA256_COMMAND_ID,
+  CRYPTO_SHA384_COMMAND_ID,
+  CRYPTO_SHA512_COMMAND_ID,
+  CRYPTO_RIPEMDL160_COMMAND_ID,
 } from './sourceSurgeCommands'
 
 export function registerCryptoCommands(context: ExtensionContext) {
   _registerUuid4Command(context)
-  _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha512')
 
-  // _registerSha512Command(context, CRYPTO_MD4_COMMAND_ID, 'md4')
-  // _registerSha512Command(context, CRYPTO_MD5_COMMAND_ID, 'md5')
-  // _registerSha512Command(context, CRYPTO_SHA1_COMMAND_ID, 'sha1')
-  // _registerSha512Command(context, CRYPTO_SHA256_COMMAND_ID, 'sha256')
-  // _registerSha512Command(context, CRYPTO_SHA384_COMMAND_ID, 'sha384')
-  // _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha512')
-  // _registerSha512Command(context, CRYPTO_SHA512_224_COMMAND_ID, 'sha512_224')
-  // _registerSha512Command(context, CRYPTO_SHA512_256_COMMAND_ID, 'sha512_256')
-  // _registerSha512Command(context, CRYPTO_RIPEMDL160_COMMAND_ID, 'ripemd160')
+  _registerSha512Command(context, CRYPTO_MD4_COMMAND_ID, 'md4')
+  _registerSha512Command(context, CRYPTO_MD5_COMMAND_ID, 'md5')
+  _registerSha512Command(context, CRYPTO_SHA1_COMMAND_ID, 'sha1')
+  _registerSha512Command(context, CRYPTO_SHA256_COMMAND_ID, 'sha256')
+  _registerSha512Command(context, CRYPTO_SHA384_COMMAND_ID, 'sha384')
+  _registerSha512Command(context, CRYPTO_SHA512_COMMAND_ID, 'sha512')
+  _registerSha512Command(context, CRYPTO_RIPEMDL160_COMMAND_ID, 'ripemd160')
 }
 
 function _registerUuid4Command(context: ExtensionContext) {
