@@ -41,4 +41,11 @@ export const ZOOM_200_COMMAND_ID = 'sourceSurge.action.editorZoom200'
 
 // Crypto
 export const CRYPTO_UUID_COMMAND_ID = 'sourceSurge.action.cryptoUUID'
+export const CRYPTO_MD4_COMMAND_ID = 'sourceSurge.action.cryptoMD4'
+export const CRYPTO_MD5_COMMAND_ID = 'sourceSurge.action.cryptoMD5'
+export const CRYPTO_SHA1_COMMAND_ID = 'sourceSurge.action.cryptoSHA1'
+export const CRYPTO_SHA256_COMMAND_ID = 'sourceSurge.action.cryptoSHA256'
+export const CRYPTO_SHA384_COMMAND_ID = 'sourceSurge.action.cryptoSHA384'
 export const CRYPTO_SHA512_COMMAND_ID = 'sourceSurge.action.cryptoSHA512'
+export const CRYPTO_RIPEMDL160_COMMAND_ID =
+  'sourceSurge.action.cryptoRIPEMDL160'

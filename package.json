@@ -2,7 +2,7 @@
   "name": "vscode-source-surge",
   "displayName": "vscode-source-surge",
   "description": "A vscode extension providing quick access menu for editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "AndrewButson",
   "icon": "images/logo_128x128.png",
   "private": true,
@@ -104,11 +104,35 @@
       "sourceSurge.action.crypto": [
         {
           "command": "sourceSurge.action.cryptoUUID",
-          "group": "navigation.sourceSurge.crypto"
+          "group": "navigation.sourceSurge.crypto1"
+        },
+        {
+          "command": "sourceSurge.action.cryptoMD4",
+          "group": "navigation.sourceSurge.crypto2"
+        },
+        {
+          "command": "sourceSurge.action.cryptoMD5",
+          "group": "navigation.sourceSurge.crypto2"
+        },
+        {
+          "command": "sourceSurge.action.cryptoSHA1",
+          "group": "navigation.sourceSurge.crypto3"
+        },
+        {
+          "command": "sourceSurge.action.cryptoSHA256",
+          "group": "navigation.sourceSurge.crypto3"
+        },
+        {
+          "command": "sourceSurge.action.cryptoSHA384",
+          "group": "navigation.sourceSurge.crypto3"
         },
         {
           "command": "sourceSurge.action.cryptoSHA512",
-          "group": "navigation.sourceSurge.crypto"
+          "group": "navigation.sourceSurge.crypto3"
+        },
+        {
+          "command": "sourceSurge.action.cryptoRIPEMDL160",
+          "group": "navigation.sourceSurge.crypto4"
         }
       ],
       "sourceSurge.action.devtools": [
@@ -183,114 +207,144 @@
     ],
     "commands": [
       {
-        "command": "sourceSurge.action.cryptoSHA512",
-        "title": "Generate SHA-512",
-        "category": "source-surge.crypto"
-      },
-      {
         "command": "sourceSurge.action.cryptoUUID",
         "title": "Generate UUID(v4)",
-        "category": "source-surge.crypto"
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoMD4",
+        "title": "Generate MD4",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoMD5",
+        "title": "Generate MD5",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoSHA1",
+        "title": "Generate SHA1",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoSHA256",
+        "title": "Generate SHA256",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoSHA384",
+        "title": "Generate SHA384",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoSHA512",
+        "title": "Generate SHA512",
+        "category": "sourceSurge.crypto"
+      },
+      {
+        "command": "sourceSurge.action.cryptoRIPEMDL160",
+        "title": "Generate RIPEMDL160",
+        "category": "sourceSurge.crypto"
       },
       {
         "command": "sourceSurge.action.foldAll",
         "title": "Fold All",
-        "category": "source-surge"
+        "category": "sourceSurge.devtools"
       },
       {
         "command": "sourceSurge.action.unfoldAll",
         "title": "Unfold All",
-        "category": "source-surge"
+        "category": "sourceSurge.devtools"
       },
       {
         "command": "sourceSurge.action.transformToKebabcase",
         "title": "Kebab-Case",
-        "category": "source-surge"
+        "category": "sourceSurge.transform"
       },
       {
         "command": "sourceSurge.action.transformToUppercase",
         "title": "UPPER CASE",
-        "category": "source-surge"
+        "category": "sourceSurge.transform"
       },
       {
         "command": "sourceSurge.action.transformToLowercase",
         "title": "lower case",
-        "category": "source-surge"
+        "category": "sourceSurge.transform"
       },
       {
         "command": "sourceSurge.action.transformToSnakecase",
         "title": "snake_case",
-        "category": "source-surge"
+        "category": "sourceSurge.transform"
       },
       {
         "command": "sourceSurge.action.transformToTitlecase",
         "title": "Title Case",
-        "category": "source-surge"
+        "category": "sourceSurge.transform"
       },
       {
         "command": "sourceSurge.action.editorZoomIn",
         "title": "Zoom In",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoomReset",
         "title": "Zoom Reset",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoomOut",
         "title": "Zoom Out",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoom060",
         "title": " 60%",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoom070",
         "title": " 70%",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoom085",
         "title": " 85%",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoom100",
         "title": "100%",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoom120",
         "title": "120%",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoom150",
         "title": "150%",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoom175",
         "title": "175%",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.editorZoom200",
         "title": "200%",
-        "category": "source-surge"
+        "category": "sourceSurge.editorZoom"
       },
       {
         "command": "sourceSurge.action.formatDocument",
         "title": "Format",
-        "category": "source-surge"
+        "category": "sourceSurge.devtools"
       },
       {
         "command": "sourceSurge.action.toggleDevTools",
         "title": "Developer Tools",
-        "category": "source-surge"
+        "category": "sourceSurge.devtools"
       }
     ]
   },
